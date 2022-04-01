@@ -1,0 +1,63 @@
+Instalar WebPack
+
+npm set proxy http://nelgon:Scrd2023@192.168.10.6:3128 (Para configurar el proxy en la empresa en el VsCode)
+git config --global http.proxy  http://nelgon:Scrd2023@192.168.10.6:3128
+git config --global https.proxy  https://nelgon:Scrd2023@192.168.10.6:3128
+
+
+1. node --version
+2. npm --version
+3. npm init (ó npm init -y para iniciar de forma limpia)
+4. npm install webpack webpack-cli --save-dev
+4. npm install webpack webpack-cli lodash html-loader html-webpack-plugin webpack-dev-server css-loader style-loader mini-css-extract-plugin sass-loader sass css-minimizer-webpack-plugin babel-loader @babel/core @babel/preset-env webpack-merge --save-dev
+5. Crear la siguiente estructura de directorio:
+	PlantillaWebpack
+	|- package.json
+	|- package-lock.json
+	|- webpack.config.js
+	|- /dist
+  		|- main.js
+  		|- index.html
+	|- /src
+  		|- index.js
+	|- /node_modules
+6. npm install --save-dev lodash
+6. Crear en la raiz el archivo de configuracion de WebPach
+	|- webpack.config.js
+7. A este archivo agregar la siguiente configuracion
+	const path = require('path');
+
+	module.exports = {
+  		entry: './src/index.js',
+  		output: {
+    			filename: 'main.js',
+    			path: path.resolve(__dirname, 'dist'),
+  		},
+	};
+7. npm run build (Para crear el directorio "dist")
+
+
+npm uninstall webpack webpack-cli lodash html-loader html-webpack-plugin webpack-dev-server css-loader style-loader mini-css-extract-plugin sass-loader sass css-minimizer-webpack-plugin babel-loader @babel/core @babel/preset-env webpack-merge --save-dev
+
+
+{
+        test: /\.css$/i,
+        exclude: /style.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /style.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+
+
+dotenv-webpack
+
+
+"webpack --config webpack.prod.js" "webpack serve --open --config webpack.dev.js"
+
+
